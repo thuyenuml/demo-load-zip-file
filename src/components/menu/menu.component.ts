@@ -22,6 +22,7 @@ export class MenuComponent implements OnInit {
     console.info('file : ' , file.name);
     JSZip.loadAsync(file)
       .then(zip => {
+        console.info(zip);
         zip.forEach((relativePath, zipEntry) => {
           if (zipEntry.name.endsWith(".xml")) {
             zipEntry.async('string').then(data => {
